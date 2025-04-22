@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Name Variations</title>
+    <style>
+        /* Optional basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .navbar {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+        .nav-brand {
+            margin: 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .input {
+            padding: 8px;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="nav-brand">Name variations</h1>
+    </nav>
+
+    <main class="container">
+        <div>
+            <label class="label" for="your-name">Enter your name</label>
+            <input type="text" class="input" placeholder="Your name" id="your-name" autocomplete="off">
+        </div>
+
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th width="200px">Variation</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Number of characters</td>
+                    <td id="answer1"></td>
+                </tr>
+                <tr>
+                    <td>First character</td>
+                    <td id="answer2"></td>
+                </tr>
+                <tr>
+                    <td>Last character</td>
+                    <td id="answer3"></td>
+                </tr>
+                <tr>
+                    <td>Lower case</td>
+                    <td id="answer4"></td>
+                </tr>
+                <tr>
+                    <td>Upper case</td>
+                    <td id="answer5"></td>
+                </tr>
+                <tr>
+                    <td>Capitalize</td>
+                    <td id="answer6"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        const input = document.getElementById("your-name");
+
+        input.addEventListener("input", () => {
+            const name = input.value;
+
+            document.getElementById("answer1").textContent = name.length;
+            document.getElementById("answer2").textContent = name.charAt(0);
+            document.getElementById("answer3").textContent = name.charAt(name.length - 1);
+            document.getElementById("answer4").textContent = name.toLowerCase();
+            document.getElementById("answer5").textContent = name.toUpperCase();
+            document.getElementById("answer6").textContent = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        });
+    </script>
+</body>
+</html>
